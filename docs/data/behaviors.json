@@ -1,0 +1,1 @@
+{"uid":"b1a8273437954620fa374b796ffaacdd","name":"behaviors","children":[{"name":"01_yandexPay","uid":"15ad2492b2a1b224","parentUid":"b1a8273437954620fa374b796ffaacdd","status":"failed","time":{"duration":240000},"flaky":false,"newFailed":false,"newPassed":false,"newBroken":false,"retriesCount":0,"retriesStatusChange":false,"parameters":[],"tags":[]}]}
