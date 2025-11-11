@@ -1,2 +1,4 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","28000","screenShot","","","failed","","","Test Suite","screenShot",""
+"","96000","01_yandexPayBilet","","","failed","","","Test Suite","01_yandexPayBilet",""
+"","1000","02_stopApp_1","","","passed","","","Test Suite","02_stopApp_1",""
+"","88000","03_yandexPayBiletEda","","","failed","","","Test Suite","03_yandexPayBiletEda",""
