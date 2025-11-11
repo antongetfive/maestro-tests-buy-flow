@@ -1,0 +1,1 @@
+[{"uid":"77f0404b1d4126b","name":"01_yandexPayBilet","time":{"duration":125000},"status":"failed","severity":"normal"},{"uid":"9bc2d7bd124a8a41","name":"03_yandexPayBiletEda","time":{"duration":173000},"status":"failed","severity":"normal"},{"uid":"4711aefc09dd4bce","name":"02_stopApp_1","time":{"duration":1000},"status":"passed","severity":"normal"}]
