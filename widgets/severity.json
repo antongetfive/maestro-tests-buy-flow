@@ -1,1 +1,1 @@
-[{"uid":"3ef496077160b7f2","name":"03_autorization","time":{"duration":106000},"status":"passed","severity":"normal"},{"uid":"f53508e51b615e36","name":"02_zapusk","time":{"duration":14000},"status":"passed","severity":"normal"}]
+[{"uid":"8aec721578941559","name":"02_zapusk","time":{"duration":14000},"status":"passed","severity":"normal"},{"uid":"ea9b8545d956f13","name":"03_autorization","time":{"duration":106000},"status":"passed","severity":"normal"}]
