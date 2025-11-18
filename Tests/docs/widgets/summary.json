@@ -1,1 +1,1 @@
-{"reportName":"Payment Flow Tests Report","testRuns":[],"statistic":{"failed":2,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":3},"time":{"minDuration":1000,"maxDuration":23000,"sumDuration":47000}}
+{"reportName":"Payment Flow Tests Report","testRuns":[],"statistic":{"failed":2,"broken":0,"skipped":0,"passed":5,"unknown":0,"total":7},"time":{"minDuration":1000,"maxDuration":456000,"sumDuration":1024000}}
