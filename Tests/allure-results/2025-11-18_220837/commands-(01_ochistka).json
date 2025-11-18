@@ -1,0 +1,70 @@
+[ {
+  "command" : {
+    "launchAppCommand" : {
+      "appId" : "ru.karofilm.app",
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763492929491,
+    "duration" : 4492
+  }
+}, {
+  "command" : {
+    "defineVariablesCommand" : {
+      "env" : {
+        "MAESTRO_FILENAME" : "01_ochistka"
+      },
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763492929489,
+    "duration" : 2
+  }
+}, {
+  "command" : {
+    "clearStateCommand" : {
+      "appId" : "ru.karofilm.app",
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763492938479,
+    "duration" : 4187
+  }
+}, {
+  "command" : {
+    "applyConfigurationCommand" : {
+      "config" : {
+        "appId" : "ru.karofilm.app",
+        "ext" : {
+          "settings" : {
+            "screenshot-on-failure" : true
+          }
+        }
+      },
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763492929491,
+    "duration" : 0
+  }
+}, {
+  "command" : {
+    "clearStateCommand" : {
+      "appId" : "ru.karofilm.app",
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763492933983,
+    "duration" : 4496
+  }
+} ]

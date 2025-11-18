@@ -1,8 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","14000","02_zapusk","","","passed","","","Test Suite","02_zapusk",""
-"","62000","05_yandexPayBilet","","","failed","","","Test Suite","05_yandexPayBilet",""
-"","109000","03_autorization","","","passed","","","Test Suite","03_autorization",""
-"","14000","01_ochistka","","","passed","","","Test Suite","01_ochistka",""
-"","1000","06_stopApp_1","","","passed","","","Test Suite","06_stopApp_1",""
-"","109000","07_yandexPayBiletEda","","","failed","","","Test Suite","07_yandexPayBiletEda",""
-"","20000","04_onbording","","","passed","","","Test Suite","04_onbording",""

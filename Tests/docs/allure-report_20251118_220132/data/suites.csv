@@ -1,5 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","14000","01_ochistka","","","passed","","","Test Suite","01_ochistka",""
-"","73000","03_autorization","","","failed","","","Test Suite","03_autorization",""
-"","31000","04_onbording","","","failed","","","Test Suite","04_onbording",""
-"","17000","02_zapusk","","","passed","","","Test Suite","02_zapusk",""
