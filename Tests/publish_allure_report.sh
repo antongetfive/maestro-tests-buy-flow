@@ -1,102 +1,21 @@
-#!/bin/bash
-
-# -------------------------------
-# Настройки
-# -------------------------------
-set -e # Останавливать скрипт при ошибках
-
-echo "🚀 Начинаю публикацию отчета..."
-
-# -------------------------------
-# Генерация отчета
-# -------------------------------
-echo "📊 Генерирую Allure отчет..."
 rm -rf docs
-allure generate allure-results --clean -o docs
+mkdir docs
 
-# Добавляем файл для обхода кэша
-TIMESTAMP=$(date +%s)
-echo "<!-- Timestamp: $TIMESTAMP -->" >> docs/index.html
+# соберём все allure-results из подпроектов
+RESULTS=""
 
-if [ ! -f "docs/index.html" ]; then
-    echo "❌ Ошибка: отчет не сгенерирован"
-    exit 1
-fi
+for DIR in maestro-tests-buy-flow/*; do
+  if [ -d "$DIR/allure-results" ]; then
+    RESULTS="$RESULTS $DIR/allure-results"
+  fi
+done
 
-echo "✅ Отчет сгенерирован (timestamp: $TIMESTAMP)"
+echo "Используем результаты:"
+echo $RESULTS
 
-# -------------------------------
-# Публикация в Git
-# -------------------------------
-echo "📤 Публикую в GitHub..."
+# генерируем единый отчёт
+allure generate $RESULTS --clean -o docs
+
 git add -A
-
-# Создаем коммит с принудительным сообщением
-COMMIT_MSG="update allure reports $(date '+%Y-%m-%d %H:%M:%S') - $TIMESTAMP"
-git commit -m "$COMMIT_MSG" || echo "ℹ️ Нет изменений для коммита"
-
+git commit -m "update reports $(date)"
 git push
-
-echo "✅ Отчет опубликован в репозитории"
-
-# -------------------------------
-# Генерация публичной ссылки с обходом кэша
-# -------------------------------
-REPO_URL=$(git config --get remote.origin.url)
-
-get_github_pages_url() {
-    local url="$1"
-    
-    # https://github.com/user/repo.git
-    if [[ "$url" =~ github.com[:/]([^/]+)/([^/.]+)\.git$ ]]; then
-        echo "https://${BASH_REMATCH[1]}.github.io/${BASH_REMATCH[2]}/"
-    
-    # git@github.com:user/repo.git  
-    elif [[ "$url" =~ :([^/]+)/([^/.]+)\.git$ ]]; then
-        echo "https://${BASH_REMATCH[1]}.github.io/${BASH_REMATCH[2]}/"
-    
-    # https://github.com/user/repo
-    elif [[ "$url" =~ github.com[:/]([^/]+)/([^/.]+)$ ]]; then
-        echo "https://${BASH_REMATCH[1]}.github.io/${BASH_REMATCH[2]}/"
-    else
-        return 1
-    fi
-}
-
-GH_PAGES_URL=$(get_github_pages_url "$REPO_URL")
-
-if [ -n "$GH_PAGES_URL" ]; then
-    echo ""
-    echo "🎉 ОТЧЕТ ОПУБЛИКОВАН!"
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "📊 Публичная ссылка:"
-    echo "   ${GH_PAGES_URL}index.html"
-    echo ""
-    echo "🔄 Ссылка с обходом кэша:"
-    echo "   ${GH_PAGES_URL}index.html?t=$TIMESTAMP"
-    echo ""
-    echo "🌐 Главная страница:"
-    echo "   $GH_PAGES_URL"
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    
-    # Копируем в буфер обмена (версия с timestamp)
-    if command -v pbcopy > /dev/null; then
-        echo "${GH_PAGES_URL}index.html?t=$TIMESTAMP" | pbcopy
-        echo "📋 Ссылка с обходом кэша скопирована в буфер обмена!"
-    elif command -v xclip > /dev/null; then
-        echo "${GH_PAGES_URL}index.html?t=$TIMESTAMP" | xclip -selection clipboard
-        echo "📋 Ссылка с обходом кэша скопирована в буфер обмена!"
-    fi
-else
-    echo "⚠️ Не удалось определить ссылку GitHub Pages"
-fi
-
-# -------------------------------
-# Ждем обновления GitHub Pages
-# -------------------------------
-echo ""
-echo "⏳ Ожидайте обновления GitHub Pages (может занять до 5 минут)..."
-echo "💡 Если видите старый отчет:"
-echo "   - Нажмите Ctrl+F5 для принудительного обновления"
-echo "   - Используйте ссылку с параметром ?t=$TIMESTAMP"
-echo "   - Очистите кэш браузера"
