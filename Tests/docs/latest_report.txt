@@ -1,1 +1,1 @@
-https://git@github.com:antongetfive.github.io/maestro-tests-buy-flow/allure-report_20251118_210544/
+https://git@github.com:antongetfive.github.io/maestro-tests-buy-flow/allure-report_20251118_210837/

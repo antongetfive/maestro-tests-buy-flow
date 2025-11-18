@@ -1,0 +1,1 @@
+{"uid":"ab17fc5a4eb3bca4b216b548c7f9fcbc","name":"timeline","children":[{"name":"02_zapusk","uid":"1357fc37788b896f","parentUid":"ab17fc5a4eb3bca4b216b548c7f9fcbc","status":"failed","time":{"duration":23000},"flaky":false,"newFailed":false,"newPassed":false,"newBroken":false,"retriesCount":0,"retriesStatusChange":false,"parameters":[],"tags":[]}]}
