@@ -1,0 +1,8 @@
+{
+  "name": "Sergeev Anton",
+  "type": "QA",
+  "url": "http://localhost",
+  "buildName": "QA",
+  "buildOrder": 1,
+  "reportName": "Payment Flow Tests Report"
+}

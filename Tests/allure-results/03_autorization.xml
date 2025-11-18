@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <testsuites>
-  <testsuite name="Test Suite" device="FAJB4DONQCIZXOPR" tests="1" failures="1" time="21.0">
-    <testcase id="03_autorization" name="03_autorization" classname="03_autorization" time="21.0" status="ERROR">
-      <failure>Element not found: Text matching regex: Вход</failure>
+  <testsuite name="Test Suite" device="FAJB4DONQCIZXOPR" tests="1" failures="1" time="73.0">
+    <testcase id="03_autorization" name="03_autorization" classname="03_autorization" time="73.0" status="ERROR">
+      <failure>Unknown error</failure>
     </testcase>
   </testsuite>
 </testsuites>

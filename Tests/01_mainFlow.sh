@@ -182,13 +182,13 @@ echo "✅ Python сервер запущен (PID=$PY_PID)"
 ### Список тестов
 ########################################
 TEST_FILES=(
-    # "01_ochistka.yaml"
+    "01_ochistka.yaml"
     "02_zapusk.yaml"
     "03_autorization.yaml"
-    # "04_onbording.yaml"
-    # "05_yandexPayBilet.yaml"
-    # "06_stopApp_1.yaml"
-    # "07_yandexPayBiletEda.yaml"
+    "04_onbording.yaml"
+    "05_yandexPayBilet.yaml"
+    "06_stopApp_1.yaml"
+    "07_yandexPayBiletEda.yaml"
 )
 
 TOTAL_TESTS=${#TEST_FILES[@]}

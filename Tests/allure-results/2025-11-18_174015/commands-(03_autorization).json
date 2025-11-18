@@ -1,0 +1,743 @@
+[ {
+  "command" : {
+    "tapOnElement" : {
+      "selector" : {
+        "textRegex" : "Продолжить",
+        "optional" : false
+      },
+      "retryIfNoChange" : false,
+      "waitUntilVisible" : false,
+      "longPress" : false,
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763476892452,
+    "duration" : 5279
+  }
+}, {
+  "command" : {
+    "tapOnElement" : {
+      "selector" : {
+        "idRegex" : "com.google.android.inputmethod.latin:id/key_pos_number_line1_2",
+        "optional" : false
+      },
+      "retryIfNoChange" : false,
+      "waitUntilVisible" : false,
+      "longPress" : false,
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763476845314,
+    "duration" : 4637
+  }
+}, {
+  "command" : {
+    "tapOnElement" : {
+      "selector" : {
+        "idRegex" : "com.google.android.inputmethod.latin:id/key_pos_number_line1_1",
+        "optional" : false
+      },
+      "retryIfNoChange" : false,
+      "waitUntilVisible" : false,
+      "longPress" : false,
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763476854434,
+    "duration" : 6099
+  }
+}, {
+  "command" : {
+    "tapOnElement" : {
+      "selector" : {
+        "idRegex" : "com.google.android.inputmethod.latin:id/key_pos_number_line4_2",
+        "optional" : false
+      },
+      "retryIfNoChange" : false,
+      "waitUntilVisible" : false,
+      "longPress" : false,
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763476865103,
+    "duration" : 5568
+  }
+}, {
+  "command" : {
+    "tapOnElement" : {
+      "selector" : {
+        "textRegex" : "Вход",
+        "optional" : false
+      },
+      "retryIfNoChange" : false,
+      "waitUntilVisible" : false,
+      "longPress" : false,
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763476828450,
+    "duration" : 5392
+  }
+}, {
+  "command" : {
+    "tapOnElement" : {
+      "selector" : {
+        "idRegex" : "com.google.android.inputmethod.latin:id/key_pos_number_line3_3",
+        "optional" : false
+      },
+      "retryIfNoChange" : false,
+      "waitUntilVisible" : false,
+      "longPress" : false,
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763476840315,
+    "duration" : 4999
+  }
+}, {
+  "command" : {
+    "tapOnElement" : {
+      "selector" : {
+        "idRegex" : "com.google.android.inputmethod.latin:id/key_pos_number_line2_3",
+        "optional" : false
+      },
+      "retryIfNoChange" : false,
+      "waitUntilVisible" : false,
+      "longPress" : false,
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763476888032,
+    "duration" : 4420
+  }
+}, {
+  "command" : {
+    "tapOnPointV2Command" : {
+      "point" : "50%,50%",
+      "retryIfNoChange" : false,
+      "longPress" : false,
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763476897731,
+    "duration" : 1917
+  }
+}, {
+  "command" : {
+    "runScriptCommand" : {
+      "script" : "console.log(\"\uD83D\uDD25 JS STARTED\");\n\nconst response = http.get(\"http://localhost:5001/otp\");\nconsole.log(\"➡️ Response status:\", response.status);\nconsole.log(\"➡️ Response body:\", response.body);\n\nconst data = json(response.body);\n\nif (!data.otpCode) {\n  throw new Error(\"OTP not found in response\");\n}\n\n// Возвращаем реальный OTP\noutput.otp = data.otpCode;\nconsole.log(\"\uD83D\uDD25 JS DONE. OTP:\", output.otp);\n",
+      "sourceDescription" : "maestro_scripts/getCode.js",
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "FAILED",
+    "timestamp" : 1763476899648,
+    "duration" : 1335,
+    "error" : {
+      "stackTrace" : [ {
+        "methodName" : ":program",
+        "fileName" : "maestro_scripts/getCode.js",
+        "lineNumber" : 10,
+        "nativeMethod" : false,
+        "className" : "<js>"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "eval",
+        "fileName" : "Context.java",
+        "lineNumber" : 402,
+        "nativeMethod" : false,
+        "className" : "org.graalvm.polyglot.Context"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "evaluateScript",
+        "fileName" : "GraalJsEngine.kt",
+        "lineNumber" : 86,
+        "nativeMethod" : false,
+        "className" : "maestro.js.GraalJsEngine"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "evaluateScript",
+        "fileName" : "GraalJsEngine.kt",
+        "lineNumber" : 26,
+        "nativeMethod" : false,
+        "className" : "maestro.js.GraalJsEngine"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "runScriptCommand",
+        "fileName" : "Orchestra.kt",
+        "lineNumber" : 533,
+        "nativeMethod" : false,
+        "className" : "maestro.orchestra.Orchestra"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "executeCommand",
+        "fileName" : "Orchestra.kt",
+        "lineNumber" : 357,
+        "nativeMethod" : false,
+        "className" : "maestro.orchestra.Orchestra"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "executeCommands",
+        "fileName" : "Orchestra.kt",
+        "lineNumber" : 252,
+        "nativeMethod" : false,
+        "className" : "maestro.orchestra.Orchestra"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "runFlow",
+        "fileName" : "Orchestra.kt",
+        "lineNumber" : 170,
+        "nativeMethod" : false,
+        "className" : "maestro.orchestra.Orchestra"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "runFlow",
+        "fileName" : "TestSuiteInteractor.kt",
+        "lineNumber" : 242,
+        "nativeMethod" : false,
+        "className" : "maestro.cli.runner.TestSuiteInteractor"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "runTestSuite",
+        "fileName" : "TestSuiteInteractor.kt",
+        "lineNumber" : 96,
+        "nativeMethod" : false,
+        "className" : "maestro.cli.runner.TestSuiteInteractor"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "runMultipleFlows",
+        "fileName" : "TestCommand.kt",
+        "lineNumber" : 470,
+        "nativeMethod" : false,
+        "className" : "maestro.cli.command.TestCommand"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "access$runMultipleFlows",
+        "fileName" : "TestCommand.kt",
+        "lineNumber" : 65,
+        "nativeMethod" : false,
+        "className" : "maestro.cli.command.TestCommand"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "invokeSuspend",
+        "fileName" : "TestCommand.kt",
+        "lineNumber" : 397,
+        "nativeMethod" : false,
+        "className" : "maestro.cli.command.TestCommand$runShardSuite$1$1"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "resumeWith",
+        "fileName" : "ContinuationImpl.kt",
+        "lineNumber" : 33,
+        "nativeMethod" : false,
+        "className" : "kotlin.coroutines.jvm.internal.BaseContinuationImpl"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "run",
+        "fileName" : "DispatchedTask.kt",
+        "lineNumber" : 104,
+        "nativeMethod" : false,
+        "className" : "kotlinx.coroutines.DispatchedTask"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "processNextEvent",
+        "fileName" : "EventLoop.common.kt",
+        "lineNumber" : 277,
+        "nativeMethod" : false,
+        "className" : "kotlinx.coroutines.EventLoopImplBase"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "joinBlocking",
+        "fileName" : "Builders.kt",
+        "lineNumber" : 95,
+        "nativeMethod" : false,
+        "className" : "kotlinx.coroutines.BlockingCoroutine"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "runBlocking",
+        "fileName" : "Builders.kt",
+        "lineNumber" : 69,
+        "nativeMethod" : false,
+        "className" : "kotlinx.coroutines.BuildersKt__BuildersKt"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "runBlocking",
+        "lineNumber" : 1,
+        "nativeMethod" : false,
+        "className" : "kotlinx.coroutines.BuildersKt"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "runBlocking$default",
+        "fileName" : "Builders.kt",
+        "lineNumber" : 48,
+        "nativeMethod" : false,
+        "className" : "kotlinx.coroutines.BuildersKt__BuildersKt"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "runBlocking$default",
+        "lineNumber" : 1,
+        "nativeMethod" : false,
+        "className" : "kotlinx.coroutines.BuildersKt"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "runShardSuite$lambda$7",
+        "fileName" : "TestCommand.kt",
+        "lineNumber" : 396,
+        "nativeMethod" : false,
+        "className" : "maestro.cli.command.TestCommand"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "newSession",
+        "fileName" : "MaestroSessionManager.kt",
+        "lineNumber" : 129,
+        "nativeMethod" : false,
+        "className" : "maestro.cli.session.MaestroSessionManager"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "newSession$default",
+        "fileName" : "MaestroSessionManager.kt",
+        "lineNumber" : 65,
+        "nativeMethod" : false,
+        "className" : "maestro.cli.session.MaestroSessionManager"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "runShardSuite",
+        "fileName" : "TestCommand.kt",
+        "lineNumber" : 372,
+        "nativeMethod" : false,
+        "className" : "maestro.cli.command.TestCommand"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "access$runShardSuite",
+        "fileName" : "TestCommand.kt",
+        "lineNumber" : 65,
+        "nativeMethod" : false,
+        "className" : "maestro.cli.command.TestCommand"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "invokeSuspend",
+        "fileName" : "TestCommand.kt",
+        "lineNumber" : 336,
+        "nativeMethod" : false,
+        "className" : "maestro.cli.command.TestCommand$handleSessions$1$results$1$1"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "resumeWith",
+        "fileName" : "ContinuationImpl.kt",
+        "lineNumber" : 33,
+        "nativeMethod" : false,
+        "className" : "kotlin.coroutines.jvm.internal.BaseContinuationImpl"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "run",
+        "fileName" : "DispatchedTask.kt",
+        "lineNumber" : 104,
+        "nativeMethod" : false,
+        "className" : "kotlinx.coroutines.DispatchedTask"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "run",
+        "fileName" : "LimitedDispatcher.kt",
+        "lineNumber" : 111,
+        "nativeMethod" : false,
+        "className" : "kotlinx.coroutines.internal.LimitedDispatcher$Worker"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "run",
+        "fileName" : "Tasks.kt",
+        "lineNumber" : 99,
+        "nativeMethod" : false,
+        "className" : "kotlinx.coroutines.scheduling.TaskImpl"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "runSafely",
+        "fileName" : "CoroutineScheduler.kt",
+        "lineNumber" : 585,
+        "nativeMethod" : false,
+        "className" : "kotlinx.coroutines.scheduling.CoroutineScheduler"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "executeTask",
+        "fileName" : "CoroutineScheduler.kt",
+        "lineNumber" : 802,
+        "nativeMethod" : false,
+        "className" : "kotlinx.coroutines.scheduling.CoroutineScheduler$Worker"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "runWorker",
+        "fileName" : "CoroutineScheduler.kt",
+        "lineNumber" : 706,
+        "nativeMethod" : false,
+        "className" : "kotlinx.coroutines.scheduling.CoroutineScheduler$Worker"
+      }, {
+        "classLoaderName" : "app",
+        "methodName" : "run",
+        "fileName" : "CoroutineScheduler.kt",
+        "lineNumber" : 693,
+        "nativeMethod" : false,
+        "className" : "kotlinx.coroutines.scheduling.CoroutineScheduler$Worker"
+      } ],
+      "guestObject" : {
+        "context" : {
+          "engine" : {
+            "options" : [ {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : false
+              },
+              "name" : "engine.AssertProbes",
+              "help" : "Asserts that enter and return are always called in pairs on ProbeNode, verifies correct behavior of wrapper nodes. Java asserts need to be turned on for this option to have an effect. (default: false)",
+              "category" : "INTERNAL",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "usageSyntax" : "true|false",
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : false
+              },
+              "name" : "engine.DisableCodeSharing",
+              "help" : "Option to force disable code sharing for this engine, even if the context was created with an explicit engine. This option is intended for testing purposes only.",
+              "category" : "INTERNAL",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : false
+              },
+              "name" : "engine.ForceCodeSharing",
+              "help" : "Option to force enable code sharing for this engine, even if the context was created with a bound engine. This option is intended for testing purposes only.",
+              "category" : "INTERNAL",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : true
+              },
+              "name" : "engine.InstrumentExceptionsAreThrown",
+              "help" : "Propagates exceptions thrown by instruments. (default: true)",
+              "category" : "INTERNAL",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "usageSyntax" : "true|false",
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "String"
+                }
+              },
+              "name" : "engine.PreinitializeContexts",
+              "help" : "Preinitialize language contexts for given languages.",
+              "category" : "EXPERT",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : true,
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : false
+              },
+              "name" : "engine.PrintInternalStackTrace",
+              "help" : "Printed PolyglotException stacktrace unconditionally contains the stacktrace of the original internal exception as well as the stacktrace of the creation of the PolyglotException instance.",
+              "category" : "INTERNAL",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : false
+              },
+              "name" : "engine.RelaxStaticObjectSafetyChecks",
+              "help" : "On property accesses, the Static Object Model does not perform shape checks and uses unsafe casts",
+              "category" : "EXPERT",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : false
+              },
+              "name" : "engine.SafepointALot",
+              "help" : "Repeadly submits thread local actions and collects statistics about safepoint intervals in the process. Prints event and interval statistics when the context is closed for each thread. This option significantly slows down execution and is therefore intended for testing purposes only.",
+              "category" : "INTERNAL",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : false
+              },
+              "name" : "engine.ShowInternalStackFrames",
+              "help" : "Show internal frames specific to the language implementation in stack traces.",
+              "category" : "INTERNAL",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : false
+              },
+              "name" : "engine.SpecializationStatistics",
+              "help" : "Enables specialization statistics for nodes generated with Truffle DSL and prints the result on exit. In order for this flag to be functional -Atruffle.dsl.GenerateSpecializationStatistics=true needs to be set at build time. Enabling this flag and the compiler option has major implications on the performance and footprint of the interpreter. Do not use in production environments.",
+              "category" : "INTERNAL",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "strategy"
+                },
+                "defaultValue" : "DEFAULT"
+              },
+              "name" : "engine.StaticObjectStorageStrategy",
+              "help" : "Set the storage strategy used by the Static Object Model. Accepted values are: ['default', 'array-based', 'field-based']",
+              "category" : "INTERNAL",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "usageSyntax" : "default|array-based|field-based",
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Integer"
+                },
+                "defaultValue" : 60
+              },
+              "name" : "engine.SynchronousThreadLocalActionMaxWait",
+              "help" : "How long to wait for other threads to reach a synchronous ThreadLocalAction before cancelling it, in seconds. 0 means no limit.",
+              "category" : "EXPERT",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "usageSyntax" : "[0, inf)",
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : false
+              },
+              "name" : "engine.SynchronousThreadLocalActionPrintStackTraces",
+              "help" : "Print thread stacktraces when a synchronous ThreadLocalAction is waiting for more than SynchronousThreadLocalActionMaxWait seconds.",
+              "category" : "EXPERT",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : false
+              },
+              "name" : "engine.TraceCodeSharing",
+              "help" : "Enables printing of code sharing related information to the logger. This option is intended to support debugging language implementations.",
+              "category" : "INTERNAL",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Integer"
+                },
+                "defaultValue" : 0
+              },
+              "name" : "engine.TraceMissingSafepointPollInterval",
+              "help" : "Show Java stacktraces for missing polls longer than the supplied number of milliseconds. Implies SafepointALot.",
+              "category" : "INTERNAL",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "usageSyntax" : "[0, inf)",
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : false
+              },
+              "name" : "engine.TraceSourceCache",
+              "help" : "Print information for source cache misses/evictions/failures.",
+              "category" : "EXPERT",
+              "stability" : "STABLE",
+              "deprecated" : false,
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : false
+              },
+              "name" : "engine.TraceSourceCacheDetails",
+              "help" : "Print information for all source cache events including hits and uncached misses.",
+              "category" : "EXPERT",
+              "stability" : "STABLE",
+              "deprecated" : false,
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Long"
+                },
+                "defaultValue" : 0
+              },
+              "name" : "engine.TraceStackTraceInterval",
+              "help" : "Prints the stack trace for all threads for a time interval. By default 0, which disables the output.",
+              "category" : "EXPERT",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "usageSyntax" : "[1, inf)",
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : false
+              },
+              "name" : "engine.TraceThreadLocalActions",
+              "help" : "Traces thread local events and when they are processed on the individual threads. Prints messages with the [engine] [tl] prefix.",
+              "category" : "INTERNAL",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : false
+              },
+              "name" : "engine.TriggerUncaughtExceptionHandlerForCancel",
+              "help" : "Propagates cancel execution exception into UncaughtExceptionHandler. For testing purposes only.",
+              "category" : "INTERNAL",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : false
+              },
+              "name" : "engine.UseConservativeContextReferences",
+              "help" : "Enables conservative context references. This allows invalid sharing between contexts. For testing purposes only.",
+              "category" : "INTERNAL",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : true,
+              "deprecationMessage" : "Has no longer any effect. Scheduled for removal in in 22.1.",
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : true
+              },
+              "name" : "engine.UsePreInitializedContext",
+              "help" : "Use pre-initialized context when it's available (default: true).",
+              "category" : "INTERNAL",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "usageSyntax" : "true|false",
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : true
+              },
+              "name" : "engine.WarnInterpreterOnly",
+              "help" : "Print warning when the engine is using a default Truffle runtime (default: true).",
+              "category" : "USER",
+              "stability" : "STABLE",
+              "deprecated" : false,
+              "usageSyntax" : "true|false",
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : true
+              },
+              "name" : "engine.WarnOptionDeprecation",
+              "help" : "Print warning when a deprecated option is used (default: true).",
+              "category" : "USER",
+              "stability" : "STABLE",
+              "deprecated" : false,
+              "usageSyntax" : "true|false",
+              "optionMap" : false
+            }, {
+              "key" : {
+                "type" : {
+                  "name" : "Boolean"
+                },
+                "defaultValue" : true
+              },
+              "name" : "engine.WarnVirtualThreadSupport",
+              "help" : "Warn that the virtual thread support is experimental (default: true).",
+              "category" : "USER",
+              "stability" : "EXPERIMENTAL",
+              "deprecated" : false,
+              "usageSyntax" : "true|false",
+              "optionMap" : false
+            } ],
+            "cachedSources" : [ {
+              "uri" : "truffle:8f55ea5e2dd3b6e435726ca4e443ba9ccdc91080b3b3c101cb656cba11f630a3/maestro_scripts/getCode.js",
+              "interactive" : false,
+              "internal" : false,
+              "characters" : "console.log(\"\uD83D\uDD25 JS STARTED\");\n\nconst response = http.get(\"http://localhost:5001/otp\");\nconsole.log(\"➡️ Response status:\", response.status);\nconsole.log(\"➡️ Response body:\", response.body);\n\nconst data = json(response.body);\n\nif (!data.otpCode) {\n  throw new Error(\"OTP not found in response\");\n}\n\n// Возвращаем реальный OTP\noutput.otp = data.otpCode;\nconsole.log(\"\uD83D\uDD25 JS DONE. OTP:\", output.otp);\n",
+              "lineCount" : 15,
+              "name" : "maestro_scripts/getCode.js",
+              "length" : 396
