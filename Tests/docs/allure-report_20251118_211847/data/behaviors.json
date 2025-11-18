@@ -1,0 +1,1 @@
+{"uid":"b1a8273437954620fa374b796ffaacdd","name":"behaviors","children":[{"name":"02_zapusk","uid":"926a5b6384b4ed05","parentUid":"b1a8273437954620fa374b796ffaacdd","status":"failed","time":{"duration":23000},"flaky":false,"newFailed":false,"newPassed":false,"newBroken":false,"retriesCount":0,"retriesStatusChange":false,"parameters":[],"tags":[]}]}
