@@ -9,14 +9,10 @@ TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 REPORT_DIR="$DOCS_DIR/report_$TIMESTAMP"
 
 # -------------------------------
-# 2) Получение URL репозитория
+# 2) URL GitHub Pages (фиксированный)
 # -------------------------------
-REPO_URL=$(git config --get remote.origin.url)
-
-if [ -z "$REPO_URL" ]; then
-  echo "❌ Ошибка: git репозиторий не найден."
-  exit 1
-fi
+GH_PAGES_BASE="https://antongetfive.github.io/maestro-tests-buy-flow/"
+GH_REPORT_URL="${GH_PAGES_BASE}report_$TIMESTAMP/"
 
 # -------------------------------
 # 3) Проверяем наличие allure-results
@@ -27,7 +23,7 @@ if [ ! -d "$RESULTS_DIR" ]; then
 fi
 
 # -------------------------------
-# 4) Создаём docs/report_TIMESTAMP/
+# 4) Создаём папку назначения для отчёта
 # -------------------------------
 echo "📁 Создаю папку отчёта: $REPORT_DIR"
 mkdir -p "$REPORT_DIR"
@@ -57,16 +53,7 @@ else
 fi
 
 # -------------------------------
-# 7) Формируем ссылку GitHub Pages
-# -------------------------------
-USER=$(echo "$REPO_URL" | sed -E 's#.*github.com[:/](.*)/(.*)\.git#\1#')
-REPO=$(echo "$REPO_URL" | sed -E 's#.*github.com[:/](.*)/(.*)\.git#\2#')
-
-GH_REPORT_URL="https://${USER}.github.io/${REPO}/report_$TIMESTAMP/"
-GH_INDEX_URL="https://${USER}.github.io/${REPO}/"
-
-# -------------------------------
-# 8) Готово!
+# 7) Готово — выводим ссылки
 # -------------------------------
 echo ""
 echo "🎉 Отчёт успешно опубликован!"
@@ -75,5 +62,5 @@ echo "📄 Уникальная ссылка на отчёт:"
 echo "$GH_REPORT_URL"
 echo ""
 echo "📚 Список всех отчётов:"
-echo "$GH_INDEX_URL"
+echo "$GH_PAGES_BASE"
 echo "----------------------------------------"
