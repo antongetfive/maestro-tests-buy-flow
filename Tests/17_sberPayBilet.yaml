@@ -1,0 +1,115 @@
+appId: ru.karofilm.app
+
+
+settings:
+  screenshot-on-failure: true   # Скриншоты при падении шага
+
+---
+- launchApp
+# - assertVisible: "Подарочные карты"
+- assertVisible: "Репертуар"
+- assertVisible: "Профиль"
+- tapOn: "Вт"
+# - tapOn:
+#     point: "26%,78%"  #левая карточка с фильмом на главном экране
+- tapOn:
+    point: "73%,83%"  #правая карточка с фильмом на главном экране
+- extendedWaitUntil:
+    visible: "Смотреть в кино"
+    timeout: 50000 
+- scrollUntilVisible:
+    centerElement: true
+    element:
+      text: "КАРО 10 София"
+- tapOn: 
+    text:  "${session_time}"  
+    below: "КАРО 10 София"
+- assertVisible: "Выберите место"
+- runFlow:
+    when:
+      visible: 'Перемещайтесь по схеме зала, двигая двумя пальцами по экрану. Для выбора места схему можно масштабировать'
+    commands:
+        - tapOn: 
+            point: "50%,50%" # Нажимаем чтоб пропало окно с пальцами
+- tapOn:
+    point: "67%,48%" # Место в  зале
+- runFlow:
+    when:
+      notVisible: "Выберите тип билета"
+    commands:
+        - tapOn: 
+            point: "72%,48%" # Запасное место в  зале
+- assertVisible: "Выберите тип билета"
+- runFlow:
+    when:
+      visible: "Пенсионер"
+    commands:
+        - tapOn: "Пенсионер"
+- runFlow:
+    when:
+      visible: "Учащиеся"
+    commands:
+        - tapOn: "Учащиеся"
+- tapOn: "1 билет"
+- runFlow:
+    when:
+      visible: "Пропустить"
+    commands:
+        - tapOn: "Пропустить"
+# - assertVisible: "Промокод"
+- assertVisible: "Данные для получения заказа"
+- tapOn:
+    point: "50%,16%"  # Нажимаю в пустое место чтоб экран успел прогрузиться
+# - tapOn:
+#     point: "8%,62%"
+- tapOn:
+    point: "8%,59%"  # Отметка чекбокса если нет подарочных карт
+# - tapOn:
+#     point: "8%,67%"
+- tapOn:
+    point: "8%,65%"  # Отметка чекбокса если нет подарочных карт
+# - tapOn:
+#     point: "8%,74%"
+- tapOn:
+    point: "8%,71%" # Отметка чекбокса если нет подарочных карт
+- tapOn:
+    point: "50%,88%"  # Нажимаем на кнопку "Оплатить"
+- tapOn: "Другой способ оплаты"
+- tapOn:
+    point: "50%,87%"  # Нажимаем на кнопку "Оплатить SberPay"
+- extendedWaitUntil:
+    visible: "Введите пароль"
+    timeout: 50000 
+- tapOn: "2"
+- tapOn: "6"  
+- tapOn: "0"
+- tapOn: "3"
+- tapOn: "8"
+- tapOn:
+    id: "ru.karofilm.app:id/spay_slo_mb_pay"
+- runFlow:
+    when:
+      visible: "Прочитано"
+    commands:
+      - tapOn: "Прочитано"
+- assertVisible: "Кинотеарт КАРО APP."
+- tapOn: "Закрыть"
+# - extendedWaitUntil:
+#       visible: "Проверка статуса оплаты"
+#       timeout: 150000 
+# - assertVisible: "Сервисный сбор"
+- extendedWaitUntil:
+    visible: "Код брони"
+    timeout: 200000
+- takeScreenshot: sberPay_bilet
+- extendedWaitUntil:
+    visible: "Сервисный сбор"
+    timeout: 200000
+# - tapOn:
+#     point: "50%,77%" # делаю нажатие чтоб подождать прогрузку экрана
+# - tapOn:
+#     point: "8%,7%" # Нажимает на стрелку "Назад"
+# - scrollUntilVisible:
+#     element: "Код брони" # Экран "Активные заказы"
+#     direction: DOWN
+

@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<testsuites>
-  <testsuite name="Test Suite" device="FAJB4DONQCIZXOPR" tests="1" failures="0" time="339.0">
-    <testcase id="05_yandexPayBilet" name="05_yandexPayBilet" classname="05_yandexPayBilet" time="339.0" status="SUCCESS"/>
-  </testsuite>
-</testsuites>

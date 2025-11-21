@@ -1,5 +1,0 @@
-<testsuite name="03_yandexPayBiletEda" tests="1" failures="1">
-    <testcase classname="03_yandexPayBiletEda" name="03_yandexPayBiletEda">
-        <failure message="Test file not found">Flow path does not exist: 03_yandexPayBiletEda.yaml</failure>
-    </testcase>
-</testsuite>

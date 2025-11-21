@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<testsuites>
-  <testsuite name="Test Suite" device="FAJB4DONQCIZXOPR" tests="1" failures="1" time="25.0">
-    <testcase id="07_yandexPayBiletEda" name="07_yandexPayBiletEda" classname="07_yandexPayBiletEda" time="25.0" status="ERROR">
-      <failure>Element not found: Text matching regex: Вт</failure>
-    </testcase>
-  </testsuite>
-</testsuites>

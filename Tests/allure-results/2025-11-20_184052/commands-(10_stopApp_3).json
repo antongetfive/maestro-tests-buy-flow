@@ -1,0 +1,46 @@
+[ {
+  "command" : {
+    "defineVariablesCommand" : {
+      "env" : {
+        "MAESTRO_FILENAME" : "10_stopApp_3"
+      },
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763653267631,
+    "duration" : 2
+  }
+}, {
+  "command" : {
+    "applyConfigurationCommand" : {
+      "config" : {
+        "appId" : "ru.karofilm.app",
+        "ext" : {
+          "settings" : {
+            "screenshot-on-failure" : true
+          }
+        }
+      },
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763653267633,
+    "duration" : 0
+  }
+}, {
+  "command" : {
+    "stopAppCommand" : {
+      "appId" : "ru.karofilm.app",
+      "optional" : false
+    }
+  },
+  "metadata" : {
+    "status" : "COMPLETED",
+    "timestamp" : 1763653267633,
+    "duration" : 211
+  }
+} ]

@@ -6,5 +6,5 @@ settings:
 
 ---
 - launchApp
-- clearState            # clears the state of the current app
+- clearState            # Запускает приложение как заново скачанное
 - clearState: ru.karofilm.app

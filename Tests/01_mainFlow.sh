@@ -1,4 +1,5 @@
 #!/bin/bash
+trap "echo '⛔ Stopping...'; kill $PY_PID 2>/dev/null; exit 1" INT
 
 ALLURE_RESULTS_DIR="allure-results"
 ARCHIVE_DIR="allure-results-archive"
@@ -48,7 +49,7 @@ cat > "$ALLURE_RESULTS_DIR/executor.json" <<EOF
 EOF
 
 ########################################
-### Анимации и прогресс
+### Анимации
 ########################################
 animate_loading() {
     local width=20
@@ -94,6 +95,7 @@ print_progress() {
 ########################################
 run_test() {
     FILE="$1"
+    SESSION_TIME="$2"
     NAME=$(basename "$FILE" .yaml)
 
     echo "------------------------------"
@@ -114,10 +116,19 @@ EOF
         return
     fi
 
-    maestro test "$FILE" \
-        --format=JUNIT \
-        --output="$ALLURE_RESULTS_DIR/${NAME}.xml" \
-        --test-output-dir="$ALLURE_RESULTS_DIR" &
+    if [[ -n "$SESSION_TIME" ]]; then
+        echo "⏱  Используется session_time: $SESSION_TIME"
+        maestro test "$FILE" \
+            -e session_time="$SESSION_TIME" \
+            --format=JUNIT \
+            --output="$ALLURE_RESULTS_DIR/${NAME}.xml" \
+            --test-output-dir="$ALLURE_RESULTS_DIR" &
+    else
+        maestro test "$FILE" \
+            --format=JUNIT \
+            --output="$ALLURE_RESULTS_DIR/${NAME}.xml" \
+            --test-output-dir="$ALLURE_RESULTS_DIR" &
+    fi
 
     TEST_PID=$!
 
@@ -152,16 +163,25 @@ sleep 2
 echo "✅ Python сервер запущен (PID=$PY_PID)"
 
 ########################################
-### Список тестов в текстовом доке
+### Чтение tests.txt (с временем)
 ########################################
-TEST_FILES=($(grep -v '^\s*#' tests.txt | sed '/^\s*$/d'))
+TESTS=()
+TIMES=()
 
+while read -r test_file session_time; do
+    [[ -z "$test_file" || "$test_file" == \#* ]] && continue
+    TESTS+=("$test_file")
+    TIMES+=("$session_time")
+done < tests.txt
 
-TOTAL_TESTS=${#TEST_FILES[@]}
+TOTAL_TESTS=${#TESTS[@]}
 PROGRESS_BAR=()
 
-for TEST in "${TEST_FILES[@]}"; do
-    run_test "$TEST"
+########################################
+### Запуск тестов
+########################################
+for i in "${!TESTS[@]}"; do
+    run_test "${TESTS[$i]}" "${TIMES[$i]}"
 done
 
 ########################################
@@ -172,22 +192,22 @@ kill $PY_PID 2>/dev/null
 echo "🛑 Python сервер остановлен"
 
 ########################################
-### Генерация и открытие Allure отчёта
+### Звук окончания
+########################################
+echo "🔔 Все тесты завершены!"
+afplay /System/Library/Sounds/Glass.aiff
+
+########################################
+### Allure отчёт
 ########################################
 echo "📊 Генерация Allure отчёта..."
 allure generate "$ALLURE_RESULTS_DIR" --clean -o "$REPORT_DIR"
 
 if [ $? -eq 0 ]; then
     echo "✅ Отчёт сгенерирован"
-
-    echo "🌐 Открываю отчёт в браузере..."
+    echo "🌐 Открываю отчёт..."
     allure open "$REPORT_DIR"
 else
     echo "❌ Ошибка генерации отчёта"
     exit 1
 fi
-########################################
-### Звук по завершению всех тестов
-########################################
-echo "🔔 Все тесты завершены!"
-afplay /System/Library/Sounds/Glass.aiff

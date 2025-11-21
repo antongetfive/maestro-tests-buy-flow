@@ -1,0 +1,8 @@
+appId: ru.karofilm.app
+
+settings:
+  screenshot-on-failure: true   # Скриншоты при падении шага
+
+---
+
+- stopApp

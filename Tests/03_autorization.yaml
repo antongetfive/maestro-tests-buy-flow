@@ -12,7 +12,7 @@ settings:
 # Ввод номера телефона
 - tapOn: "+7 (___) ___-__-__"
 - tapOn:
-     id: "com.google.android.inputmethod.latin:id/key_pos_number_line3_3"
+     id: "com.google.android.inputmethod.latin:id/key_pos_number_line3_3"  # Вводит на цифровой клавиатуре цифры
 - tapOn:
      id: "com.google.android.inputmethod.latin:id/key_pos_number_line1_2"
 - tapOn:
@@ -33,10 +33,10 @@ settings:
      id: "com.google.android.inputmethod.latin:id/key_pos_number_line2_3"
 - tapOn: "Продолжить"
 - tapOn:
-    point: "50%,50%"
+    point: "50%,50%"  # Нажимает на центр экрана чтоб задержать время перед запуском скрипта
 - runScript:
-    file: maestro_scripts/getCode.js
-- inputText: ${output.otp}
+    file: maestro_scripts/getCode.js   # Запускает скрипт для кода из электронки
+- inputText: ${output.otp}  # Вводит код с электронки
 - assertVisible: "Москва и МО"
 - tapOn: "Москва и МО"
 - tapOn: "Сохранить"
